@@ -13,11 +13,21 @@ const PORT = process.env.PORT || 5000;
 console.log("Loaded EMAIL_USER:", process.env.EMAIL_USER);
 
 // Middleware
-app.use(cors({
-  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type']
-}));
+//app.use(cors({
+  // origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  // methods: ['GET', 'POST'],
+  /// allowedHeaders: ['Content-Type']
+//}));
+
+ app.use(cors({
+   origin: [
+    'http://localhost:5173',
+    'https://kashish-frontend.vercel.app'
+   ],
+   methods: ['GET', 'POST'],
+   allowedHeaders: ['Content-Type']
+ }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
